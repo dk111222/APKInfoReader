@@ -1,6 +1,6 @@
 import os, re
 
-APK_CHECKER_PATH = r'D:\apkCheker'
+APK_CHECKER_PATH = r'D:\apkChecker'
 
 AAPT_PATH = r'C:\Users\gree\AppData\Local\Android\Sdk\build-tools\30.0.3\aapt'
 
@@ -58,7 +58,7 @@ def getApkSignerInfo(apkName):
     # keytool -printcert -file "C:\Users\xxx\Desktop\CERT.RSA"
     # CERT.RSA：解压APK，将其中META-INF文件夹解压出来，得到其中的CERT.RSA文件
     # GET_SIGNER_CMD = r'keytool -printcert -file  D:\apkChecker\GreeSystemUI\META-INF\CERT.RSA'
-    CERT_PATH = r'D:\apkChecker\%s\META-INF\CERT.RSA' %apkName
+    CERT_PATH = r'%s\%s\META-INF\CERT.RSA' %(APK_CHECKER_PATH, apkName)
 
     if (os.path.isfile(CERT_PATH) is False) :
         print("     没有找到%s,请先解压apk" % CERT_PATH)
